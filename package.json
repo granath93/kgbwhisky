@@ -1,0 +1,27 @@
+{
+  "name": "kgbwhisky",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "fix": "yarn link && yarn check-types",
+    "lint": "next lint",
+    "check-types": "yarn run -T tsc -b"
+  },
+  "dependencies": {
+    "next": "12.1.6",
+    "next-seo": "^5.4.0",
+    "prettier": "^2.6.2",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "@types/react": "^18.0.9",
+    "eslint": "8.16.0",
+    "eslint-config-next": "12.1.6"
+  }
+}
