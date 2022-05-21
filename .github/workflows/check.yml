@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v3
 
-      - name: Install deps
+      - name: Install dependensies
         run: yarn install --immutable --immutable-cache
 
       - name: Unit tests
