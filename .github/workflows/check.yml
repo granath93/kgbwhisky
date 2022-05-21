@@ -1,0 +1,26 @@
+name: Check/test project
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    name: project-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+
+      - name: Install deps
+        run: yarn install --immutable --immutable-cache
+
+      - name: Unit tests
+        run: yarn fix
