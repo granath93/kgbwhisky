@@ -1,4 +1,4 @@
-name: Check/test project
+name: Check and test the project
 
 on:
   pull_request:
@@ -10,17 +10,17 @@ on:
       - main
 
 jobs:
-  check:
+  test:
     name: project-check
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
 
-      - name: Install dependensies
+      - name: Install deps
         run: yarn install --immutable --immutable-cache
 
-      - name: Unit tests
+      - name: Verify all tests
         run: yarn fix
