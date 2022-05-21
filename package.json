@@ -9,8 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "fix": "yarn link && yarn check-types",
-    "lint": "next lint",
+    "fix": "yarn lint && yarn check-types",
+    "lint": "next lint --fix",
     "check-types": "yarn run -T tsc -b"
   },
   "dependencies": {
