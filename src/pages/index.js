@@ -1,8 +1,25 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Logo from './src/components/atoms/Logo';
+import Logo from "../components/atoms/Logo";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [helloWorld, setHello] = useState("");
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const result = await fetch("/api/hello");
+        const data = await result.json();
+        setHello(data.name);
+      } catch (e) {
+        console.error("This is the error", e);
+      }
+    };
+
+    getData();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -33,10 +50,12 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}></h1>
+        <h1 className={styles.title}>{helloWorld}</h1>
       </main>
 
-      <footer className={styles.footer}>Some contact info <Logo height={100} /></footer>
+      <footer className={styles.footer}>
+        Some contact info <Logo height={100} />
+      </footer>
     </div>
   );
 }
