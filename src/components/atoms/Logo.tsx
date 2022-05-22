@@ -1,6 +1,6 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-const Logo = ({ height }) => {
+const Logo: React.FC<{ height: number }> = ({ height }) => {
   const width = height * 1.54;
 
   return <Image alt="" height={height} width={width} src="/logga-gul.svg" />;
